@@ -13,11 +13,16 @@ namespace Chapter4
         /// 해당 애플리케이션의 주 진입점입니다.
         /// </summary>
         [STAThread]
+
         static void Main()
         {
-            Application.Run(new Form1());   
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+
             //CreateMyForm();
         }
+
 
         private static void CreateMyForm()
         {
