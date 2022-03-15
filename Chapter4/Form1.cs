@@ -15,16 +15,25 @@ namespace Chapter4
         //private bool flag;
         private RadioButton checkedRB;
 
+        private const int SCROLL_MAX_VALUE = 255 + 9;
+
         public Form1()
         {
             InitializeComponent();
 
-            ClientSize = new Size(500, 500);
+            //ClientSize = new Size(500, 500);
 
-            Form2 form2 = new Form2();
-            AddOwnedForm(form2);
+            //Form2 form2 = new Form2();
+            //AddOwnedForm(form2);
 
-            form2.Show();
+            //form2.Show();
+
+            BackColor = Color.LightSteelBlue;
+            colorPanel.BackColor = Color.FromArgb(0, 0, 0);
+
+            redBar.Maximum = SCROLL_MAX_VALUE;
+            greenBar.Maximum = SCROLL_MAX_VALUE;
+            blueBar.Maximum = SCROLL_MAX_VALUE;
         }
 
         private void Handler_button1Click(object sender, EventArgs e)
@@ -96,6 +105,42 @@ namespace Chapter4
         private void Handler_rbMaleCheckedChanged(object sender, EventArgs e)
         {
             checkedRB = rbMale;
+        }
+
+        private void Handler_CalculateButtonClick(object sender, EventArgs e)
+        {
+            var kor = Convert.ToDouble(korValue.Text);
+            var math = Convert.ToDouble(mathValue.Text);
+            var eng = Convert.ToDouble(engValue.Text);
+
+            var sum = kor + math + eng;
+            var avg = sum / 3;
+
+            sumValue.Text = sum.ToString();
+            avgValue.Text = avg.ToString("0.0");
+        }
+
+        private void Handler_TextChanged(object sender, EventArgs e)
+        {
+            if (!IsValueEmpty())
+            {
+                redBar.Value = int.Parse(redValue.Text);
+                greenBar.Value = int.Parse(greenValue.Text);
+                blueBar.Value = int.Parse(blueValue.Text);
+                colorPanel.BackColor = Color.FromArgb(redBar.Value, greenBar.Value, blueBar.Value);
+            }
+        }
+
+        private bool IsValueEmpty() => string.IsNullOrEmpty(redValue.Text) && string.IsNullOrEmpty(greenValue.Text) && string.IsNullOrEmpty(blueValue.Text);
+
+
+        private void Handler_ChangedScroll(object sender, ScrollEventArgs e)
+        {
+            redValue.Text = redBar.Value.ToString();
+            greenValue.Text = greenBar.Value.ToString();
+            blueValue.Text = blueBar.Value.ToString();
+
+            colorPanel.BackColor = Color.FromArgb(redBar.Value, greenBar.Value, blueBar.Value);
         }
     }
 }

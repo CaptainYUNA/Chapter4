@@ -37,7 +37,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "두 번째 폼";
+            this.Text = "Chapter 140 ~ 144";
             this.ResumeLayout(false);
 
         }
