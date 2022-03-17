@@ -66,10 +66,12 @@ namespace Chapter4
             this.redValue = new System.Windows.Forms.TextBox();
             this.greenValue = new System.Windows.Forms.TextBox();
             this.blueValue = new System.Windows.Forms.TextBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -363,6 +365,7 @@ namespace Chapter4
             // redBar
             // 
             this.redBar.Location = new System.Drawing.Point(276, 329);
+            this.redBar.Maximum = 255;
             this.redBar.Name = "redBar";
             this.redBar.Size = new System.Drawing.Size(161, 17);
             this.redBar.TabIndex = 18;
@@ -397,7 +400,7 @@ namespace Chapter4
             // 
             this.greenValue.Location = new System.Drawing.Point(446, 372);
             this.greenValue.Name = "greenValue";
-            this.greenValue.Size = new System.Drawing.Size(47, 21);
+            this.greenValue.Size = new System.Drawing.Size(45, 21);
             this.greenValue.TabIndex = 21;
             this.greenValue.Text = "0";
             this.greenValue.TextChanged += new System.EventHandler(this.Handler_TextChanged);
@@ -406,10 +409,19 @@ namespace Chapter4
             // 
             this.blueValue.Location = new System.Drawing.Point(446, 417);
             this.blueValue.Name = "blueValue";
-            this.blueValue.Size = new System.Drawing.Size(47, 21);
+            this.blueValue.Size = new System.Drawing.Size(45, 21);
             this.blueValue.TabIndex = 22;
             this.blueValue.Text = "0";
             this.blueValue.TextChanged += new System.EventHandler(this.Handler_TextChanged);
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(279, 329);
+            this.trackBar1.Maximum = 255;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(158, 45);
+            this.trackBar1.TabIndex = 23;
+            this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // Form1
             // 
@@ -421,7 +433,6 @@ namespace Chapter4
             this.Controls.Add(this.redValue);
             this.Controls.Add(this.blueBar);
             this.Controls.Add(this.greenBar);
-            this.Controls.Add(this.redBar);
             this.Controls.Add(this.green);
             this.Controls.Add(this.blue);
             this.Controls.Add(this.red);
@@ -437,6 +448,8 @@ namespace Chapter4
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.trackBar1);
+            this.Controls.Add(this.redBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -449,6 +462,7 @@ namespace Chapter4
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -492,6 +506,7 @@ namespace Chapter4
         private TextBox redValue;
         private TextBox greenValue;
         private TextBox blueValue;
+        private TrackBar trackBar1;
     }
 }
 

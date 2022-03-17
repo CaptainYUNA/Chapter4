@@ -15,7 +15,7 @@ namespace Chapter4
         //private bool flag;
         private RadioButton checkedRB;
 
-        private const int SCROLL_MAX_VALUE = 255 + 9;
+        private const int SCROLL_MAX_VALUE = 255;
 
         public Form1()
         {
@@ -30,6 +30,9 @@ namespace Chapter4
 
             BackColor = Color.LightSteelBlue;
             colorPanel.BackColor = Color.FromArgb(0, 0, 0);
+            redBar.LargeChange = 1;
+            greenBar.LargeChange = 1;
+            blueBar.LargeChange = 1;
 
             redBar.Maximum = SCROLL_MAX_VALUE;
             greenBar.Maximum = SCROLL_MAX_VALUE;
@@ -141,6 +144,11 @@ namespace Chapter4
             blueValue.Text = blueBar.Value.ToString();
 
             colorPanel.BackColor = Color.FromArgb(redBar.Value, greenBar.Value, blueBar.Value);
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            redValue.Text = trackBar1.Value.ToString();
         }
     }
 }
