@@ -29,6 +29,61 @@ namespace Chapter4
             }
 
             checkedItems.SelectionMode = SelectionMode.MultiExtended;
+
+            InitializeListView();
+        }
+
+        private void InitializeListView()
+        {
+            myListView.GridLines = true;
+            myListView.FullRowSelect = true;
+
+            var item1 = new ListViewItem("Access", 0);
+            var item2 = new ListViewItem("Excel", 1);
+            var item3 = new ListViewItem("PowerPoint", 2);
+            var item4 = new ListViewItem("Word", 3);
+
+            item1.SubItems.Add("22,000");
+            item1.SubItems.Add("30");
+            item1.SubItems.Add("660,000");
+
+            item2.SubItems.Add("11,000");
+            item2.SubItems.Add("30");
+            item2.SubItems.Add("330,000");
+
+            item3.SubItems.Add("10,000");
+            item3.SubItems.Add("30");
+            item3.SubItems.Add("300,000");
+
+            item4.SubItems.Add("12,000");
+            item4.SubItems.Add("20");
+            item4.SubItems.Add("240,000");
+
+            myListView.Items.AddRange(new ListViewItem[]
+            {
+                item1, item2, item3, item4
+            });
+
+            var smallImageList = new ImageList();
+            smallImageList.ImageSize = new Size(24, 24);
+
+            var largeImageList = new ImageList
+            {
+                ImageSize = new Size(64, 64)
+            };
+
+            myListView.SmallImageList = smallImageList;
+            myListView.LargeImageList = largeImageList;
+
+            smallImageList.Images.Add(Image.FromFile(@"..\..\Images\1.jpg"));
+            smallImageList.Images.Add(Image.FromFile(@"..\..\Images\2.jpg"));
+            smallImageList.Images.Add(Bitmap.FromFile(@"..\..\Images\3.jpg"));
+            smallImageList.Images.Add(Bitmap.FromFile(@"..\..\Images\4.jpg"));
+
+            largeImageList.Images.Add(Image.FromFile(@"..\..\Images\1.jpg"));
+            largeImageList.Images.Add(Image.FromFile(@"..\..\Images\2.jpg"));
+            largeImageList.Images.Add(Bitmap.FromFile(@"..\..\Images\3.jpg"));
+            largeImageList.Images.Add(Bitmap.FromFile(@"..\..\Images\4.jpg"));
         }
 
         private void Handler_GDPListBoxSelectedIndexChanged(object sender, EventArgs e)
@@ -131,6 +186,41 @@ namespace Chapter4
                 }
             }
 
+        }
+
+        private void Handler_DetailCheckedChanged(object sender, EventArgs e)
+        {
+            myListView.View = View.Details;
+        }
+
+        private void Handler_ListCheckedChanged(object sender, EventArgs e)
+        {
+            myListView.View = View.List;
+        }
+
+        private void Handler_SmallCheckedChanged(object sender, EventArgs e)
+        {
+            myListView.View = View.SmallIcon;
+        }
+
+        private void Handler_LargeCheckedChanged(object sender, EventArgs e)
+        {
+            myListView.View = View.LargeIcon;
+        }
+
+        private void Handler_MyListViewSelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedView.Text = "";
+
+            var selected = myListView.SelectedItems;
+
+            foreach (ListViewItem item in selected)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    selectedView.Text += item.SubItems[i].Text + '\t';
+                }
+            }
         }
     }
 }

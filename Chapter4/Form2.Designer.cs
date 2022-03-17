@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.GDPListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,9 +55,21 @@
             this.label6 = new System.Windows.Forms.Label();
             this.moveLeft = new System.Windows.Forms.Button();
             this.moveRight = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.large = new System.Windows.Forms.RadioButton();
+            this.small = new System.Windows.Forms.RadioButton();
+            this.list = new System.Windows.Forms.RadioButton();
+            this.detail = new System.Windows.Forms.RadioButton();
+            this.myListView = new System.Windows.Forms.ListView();
+            this.productName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.unitPrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.quanity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label7 = new System.Windows.Forms.Label();
+            this.smallImageList = new System.Windows.Forms.ImageList(this.components);
+            this.largeImageList = new System.Windows.Forms.ImageList(this.components);
+            this.selectedView = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.favoriteRestaurant.SuspendLayout();
             this.groupBox142.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -314,25 +328,102 @@
             this.moveRight.UseVisualStyleBackColor = true;
             this.moveRight.Click += new System.EventHandler(this.Handler_MoveRightClick);
             // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(7, 19);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(443, 154);
-            this.listView1.TabIndex = 19;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listView1);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.selectedView);
+            this.groupBox1.Controls.Add(this.large);
+            this.groupBox1.Controls.Add(this.small);
+            this.groupBox1.Controls.Add(this.list);
+            this.groupBox1.Controls.Add(this.detail);
+            this.groupBox1.Controls.Add(this.myListView);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(29, 341);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(457, 180);
+            this.groupBox1.Size = new System.Drawing.Size(457, 207);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chapter 144";
+            // 
+            // large
+            // 
+            this.large.AutoSize = true;
+            this.large.Location = new System.Drawing.Point(268, 19);
+            this.large.Name = "large";
+            this.large.Size = new System.Drawing.Size(75, 16);
+            this.large.TabIndex = 23;
+            this.large.TabStop = true;
+            this.large.Text = "큰 아이콘";
+            this.large.UseVisualStyleBackColor = true;
+            this.large.CheckedChanged += new System.EventHandler(this.Handler_LargeCheckedChanged);
+            // 
+            // small
+            // 
+            this.small.AutoSize = true;
+            this.small.Location = new System.Drawing.Point(163, 20);
+            this.small.Name = "small";
+            this.small.Size = new System.Drawing.Size(87, 16);
+            this.small.TabIndex = 22;
+            this.small.TabStop = true;
+            this.small.Text = "작은 아이콘";
+            this.small.UseVisualStyleBackColor = true;
+            this.small.CheckedChanged += new System.EventHandler(this.Handler_SmallCheckedChanged);
+            // 
+            // list
+            // 
+            this.list.AutoSize = true;
+            this.list.Location = new System.Drawing.Point(83, 20);
+            this.list.Name = "list";
+            this.list.Size = new System.Drawing.Size(59, 16);
+            this.list.TabIndex = 21;
+            this.list.TabStop = true;
+            this.list.Text = "리스트";
+            this.list.UseVisualStyleBackColor = true;
+            this.list.CheckedChanged += new System.EventHandler(this.Handler_ListCheckedChanged);
+            // 
+            // detail
+            // 
+            this.detail.AutoSize = true;
+            this.detail.Location = new System.Drawing.Point(8, 20);
+            this.detail.Name = "detail";
+            this.detail.Size = new System.Drawing.Size(59, 16);
+            this.detail.TabIndex = 20;
+            this.detail.TabStop = true;
+            this.detail.Text = "자세히";
+            this.detail.UseVisualStyleBackColor = true;
+            this.detail.CheckedChanged += new System.EventHandler(this.Handler_DetailCheckedChanged);
+            // 
+            // myListView
+            // 
+            this.myListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.productName,
+            this.unitPrice,
+            this.quanity,
+            this.price});
+            this.myListView.HideSelection = false;
+            this.myListView.Location = new System.Drawing.Point(7, 41);
+            this.myListView.Name = "myListView";
+            this.myListView.Size = new System.Drawing.Size(443, 132);
+            this.myListView.TabIndex = 19;
+            this.myListView.UseCompatibleStateImageBehavior = false;
+            this.myListView.SelectedIndexChanged += new System.EventHandler(this.Handler_MyListViewSelectedIndexChanged);
+            // 
+            // productName
+            // 
+            this.productName.Text = "제품명";
+            this.productName.Width = 150;
+            // 
+            // unitPrice
+            // 
+            this.unitPrice.Text = "단가";
+            // 
+            // quanity
+            // 
+            this.quanity.Text = "수량";
+            // 
+            // price
+            // 
+            this.price.Text = "금액";
             // 
             // label7
             // 
@@ -342,11 +433,45 @@
             this.label7.Size = new System.Drawing.Size(0, 12);
             this.label7.TabIndex = 17;
             // 
+            // smallImageList
+            // 
+            this.smallImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("smallImageList.ImageStream")));
+            this.smallImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.smallImageList.Images.SetKeyName(0, "1.jpg");
+            this.smallImageList.Images.SetKeyName(1, "2.jpg");
+            this.smallImageList.Images.SetKeyName(2, "3.jpg");
+            this.smallImageList.Images.SetKeyName(3, "4.jpg");
+            // 
+            // largeImageList
+            // 
+            this.largeImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("largeImageList.ImageStream")));
+            this.largeImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.largeImageList.Images.SetKeyName(0, "1.jpg");
+            this.largeImageList.Images.SetKeyName(1, "2.jpg");
+            this.largeImageList.Images.SetKeyName(2, "3.jpg");
+            this.largeImageList.Images.SetKeyName(3, "4.jpg");
+            // 
+            // selectedView
+            // 
+            this.selectedView.Location = new System.Drawing.Point(316, 179);
+            this.selectedView.Name = "selectedView";
+            this.selectedView.Size = new System.Drawing.Size(134, 21);
+            this.selectedView.TabIndex = 22;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(256, 182);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 12);
+            this.label8.TabIndex = 22;
+            this.label8.Text = "Selected";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(973, 544);
+            this.ClientSize = new System.Drawing.Size(973, 571);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox142);
             this.Controls.Add(this.favoriteRestaurant);
@@ -403,8 +528,20 @@
         private System.Windows.Forms.ListBox checkedItems;
         private System.Windows.Forms.Button allMoveRight;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RadioButton large;
+        private System.Windows.Forms.RadioButton small;
+        private System.Windows.Forms.RadioButton list;
+        private System.Windows.Forms.RadioButton detail;
+        private System.Windows.Forms.ListView myListView;
+        private System.Windows.Forms.ColumnHeader productName;
+        private System.Windows.Forms.ColumnHeader unitPrice;
+        private System.Windows.Forms.ColumnHeader quanity;
+        private System.Windows.Forms.ColumnHeader price;
+        private System.Windows.Forms.ImageList smallImageList;
+        private System.Windows.Forms.ImageList largeImageList;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox selectedView;
     }
 }

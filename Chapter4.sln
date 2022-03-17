@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31912.275
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter4", "Chapter4\Chapter4.csproj", "{3987D2D5-DE7C-464A-ADC4-702F1D5DD529}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A129_FormClass", "A129_FormClass\A129_FormClass.csproj", "{025CBBD2-1FCE-4DDD-952A-7503F39A3B9C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{E96F58F5-760F-42A2-BA27-4BB19AC9B3DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4", "A129_FormClass\4.csproj", "{025CBBD2-1FCE-4DDD-952A-7503F39A3B9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
