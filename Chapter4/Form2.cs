@@ -22,5 +22,10 @@ namespace Chapter4
         {
             CenterToParent();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
