@@ -72,11 +72,11 @@ namespace Chapter4
                 ImageSize = new Size(64, 64)
             };
 
-            myListView.SmallImageList = smallImageList;
+            myListView.SmallImageList = (smallImageList);
             myListView.LargeImageList = largeImageList;
 
-            smallImageList.Images.Add(Image.FromFile(@"..\..\Images\1.jpg"));
-            smallImageList.Images.Add(Image.FromFile(@"..\..\Images\2.jpg"));
+            smallImageList.Images.Add(Bitmap.FromFile(@"..\..\Images\1.jpg"));
+            smallImageList.Images.Add(Bitmap.FromFile(@"..\..\Images\2.jpg"));
             smallImageList.Images.Add(Bitmap.FromFile(@"..\..\Images\3.jpg"));
             smallImageList.Images.Add(Bitmap.FromFile(@"..\..\Images\4.jpg"));
 
@@ -212,9 +212,9 @@ namespace Chapter4
         {
             selectedView.Text = "";
 
-            var selected = myListView.SelectedItems;
+            var selected = myListView.SelectedItems.Cast<ListViewItem>();
 
-            foreach (ListViewItem item in selected)
+            foreach (var item in selected)
             {
                 for (int i = 0; i < 4; i++)
                 {

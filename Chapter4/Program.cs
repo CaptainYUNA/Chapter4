@@ -18,8 +18,15 @@ namespace Chapter4
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-            Application.Run(new Form2());
+
+            //Chapter 137 ~ 139
+            //Application.Run(new Form1());
+
+            //Chapter 140 ~ 144
+            //Application.Run(new Form2());
+
+            //Chapter 146 ~ 150
+            Application.Run(new Form3());
 
             //CreateMyForm();
         }
