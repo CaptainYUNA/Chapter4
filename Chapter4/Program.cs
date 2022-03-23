@@ -25,9 +25,14 @@ namespace Chapter4
             //Chapter 140 ~ 144
             //Application.Run(new Form2());
 
-            //Chapter 146 ~ 150
-            Application.Run(new Form3());
+            //Chapter 146 ~ 149
+            //Application.Run(new Form3());
 
+            //Chapter 150 ~ 151
+            //Application.Run(new Form4());
+
+            //Chapter 152
+            Application.Run(new Form5());
             //CreateMyForm();
         }
 

@@ -82,6 +82,11 @@ namespace Chapter4
                 pictureBox1.Image = Image.FromFile("../../Images/2.jpg");
                 textBox1.Text = "겸댕이";
             }
+            else
+            {
+                pictureBox1.Image = null;
+                textBox1.Text = "";
+            }
         }
 
         private void Handler_Timer1Tick(object sender, EventArgs e)
