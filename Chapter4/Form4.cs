@@ -14,9 +14,9 @@ namespace Chapter4
 {
     public partial class Form4 : Form
     {
-        private Timer myTimer = new Timer();
-        private DateTime dDay;
-        private DateTime tTime;
+        private Timer _myTimer = new Timer();
+        private DateTime _dDay;
+        private DateTime _tTime;
         private bool setAlarm;
 
         WindowsMediaPlayer myPlayer = new WindowsMediaPlayer();
@@ -30,9 +30,9 @@ namespace Chapter4
             timePicker.Format = DateTimePickerFormat.Custom;
             timePicker.CustomFormat = "tt hh:mm";
 
-            myTimer.Interval = 1000;
-            myTimer.Tick += Handler_MyTimerTick;
-            myTimer.Start();
+            _myTimer.Interval = 1000;
+            _myTimer.Tick += Handler_MyTimerTick;
+            _myTimer.Start();
         }
 
         private void Handler_MyTimerTick(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace Chapter4
 
             if (setAlarm == true)
             {
-                if (dDay == DateTime.Today && cTime.Hour == tTime.Hour && cTime.Minute == tTime.Minute)
+                if (_dDay == DateTime.Today && cTime.Hour == _tTime.Hour && cTime.Minute == _tTime.Minute)
                 {
                     setAlarm = false;
 
@@ -62,12 +62,12 @@ namespace Chapter4
 
         private void Handler_SettingButtonClick(object sender, EventArgs e)
         {
-            dDay = DateTime.Parse(dateTimePicker1.Text);
-            tTime = DateTime.Parse(timePicker.Text);
+            _dDay = DateTime.Parse(dateTimePicker1.Text);
+            _tTime = DateTime.Parse(timePicker.Text);
 
             setAlarm = true;
             labelAlarmSet.ForeColor = Color.Blue;
-            labelAlarmSet.Text = "Alarm: " + dDay.ToShortDateString() + " " + tTime.ToLongTimeString();
+            labelAlarmSet.Text = "Alarm: " + _dDay.ToShortDateString() + " " + _tTime.ToLongTimeString();
 
             tabControl1.SelectedTab = settingPage;
         }

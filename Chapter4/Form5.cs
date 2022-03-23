@@ -17,6 +17,15 @@ namespace Chapter4
     {
         Timer t = new Timer();
 
+        private DrawMode _drawMode;
+        private Graphics _g;
+        private Pen pen = new Pen(Color.Black, 2);
+        private Pen eraser;
+        Point startP;
+        Point endP;
+        Point currentP;
+        Point previousP;
+
         public Form5()
         {
             InitializeComponent();
@@ -27,6 +36,11 @@ namespace Chapter4
             t.Interval = 1000;
             t.Tick += Handler_tTick;
             t.Start();
+
+            _g = CreateGraphics();
+            toolStripLabel1.Text = "Line Mode";
+            BackColor = Color.White;
+            eraser = new Pen(BackColor, 2);
         }
 
         private void Handler_tTick(object sender, EventArgs e)
@@ -101,6 +115,26 @@ namespace Chapter4
             {
                 BackColor = colorDialog.Color;
             }
+        }
+
+        private void Handler_ToolStripLabel1Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Handler_ToolStripLabel2Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Handler_ToolStripLabel3Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Handler_ToolStripLabel4Click(object sender, EventArgs e)
+        {
+
         }
 
         //private void Handler_form5Resize(object sender, EventArgs e)

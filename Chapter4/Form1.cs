@@ -13,7 +13,7 @@ namespace Chapter4
     public partial class Form1 : Form
     {
         //private bool flag;
-        private RadioButton checkedRB;
+        private RadioButton _checkedRB;
 
         private const int SCROLL_MAX_VALUE = 255;
 
@@ -84,11 +84,11 @@ namespace Chapter4
                 result += "국적: 대한민국\n";
             }
 
-            if (checkedRB == rbFemale)
+            if (_checkedRB == rbFemale)
             {
                 result += "여성";
             }
-            else if (checkedRB == rbMale)
+            else if (_checkedRB == rbMale)
             {
                 result += "남성";
             }
@@ -102,12 +102,12 @@ namespace Chapter4
 
         private void Handler_rbFemaleCheckedChanged(object sender, EventArgs e)
         {
-            checkedRB = rbFemale;
+            _checkedRB = rbFemale;
         }
 
         private void Handler_rbMaleCheckedChanged(object sender, EventArgs e)
         {
-            checkedRB = rbMale;
+            _checkedRB = rbMale;
         }
 
         private void Handler_CalculateButtonClick(object sender, EventArgs e)
