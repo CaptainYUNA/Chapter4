@@ -41,7 +41,6 @@
             this.폰트ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.배경색ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.chapter154 = new System.Windows.Forms.GroupBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -165,15 +164,6 @@
             this.label1.Size = new System.Drawing.Size(0, 12);
             this.label1.TabIndex = 4;
             // 
-            // chapter154
-            // 
-            this.chapter154.Location = new System.Drawing.Point(464, 198);
-            this.chapter154.Name = "chapter154";
-            this.chapter154.Size = new System.Drawing.Size(324, 321);
-            this.chapter154.TabIndex = 5;
-            this.chapter154.TabStop = false;
-            this.chapter154.Text = "Chapter 154";
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -245,6 +235,7 @@
             this.toolStripLabel5.Name = "toolStripLabel5";
             this.toolStripLabel5.Size = new System.Drawing.Size(31, 22);
             this.toolStripLabel5.Text = "색깔";
+            this.toolStripLabel5.Click += new System.EventHandler(this.toolStripLabel5_Click);
             // 
             // Form5
             // 
@@ -252,7 +243,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 531);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.chapter154);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chpater153);
             this.Controls.Add(this.chpater152);
@@ -260,6 +250,9 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form5";
             this.Text = "Form5";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Handler_Form5MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Handler_Form5MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Handler_Form5MouseUp);
             this.chpater152.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.myPlayer)).EndInit();
             this.chpater153.ResumeLayout(false);
@@ -286,7 +279,6 @@
         private System.Windows.Forms.ToolStripMenuItem 폰트ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 배경색ToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox chapter154;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

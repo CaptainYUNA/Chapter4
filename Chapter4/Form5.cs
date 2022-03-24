@@ -13,6 +13,8 @@ using System.Windows.Forms;
 
 namespace Chapter4
 {
+    enum DrawMode { LINE, RECTANGLE, CIRCLE, CURVED_LINE };
+
     public partial class Form5 : Form
     {
         Timer t = new Timer();
@@ -119,22 +121,101 @@ namespace Chapter4
 
         private void Handler_ToolStripLabel1Click(object sender, EventArgs e)
         {
-
+            _drawMode = DrawMode.LINE;
+            toolStripLabel1.Text = "Line Mode";
         }
 
         private void Handler_ToolStripLabel2Click(object sender, EventArgs e)
         {
-
+            _drawMode = DrawMode.RECTANGLE;
+            toolStripLabel1.Text = "Rectangle Mode";
         }
 
         private void Handler_ToolStripLabel3Click(object sender, EventArgs e)
         {
-
+            _drawMode = DrawMode.CIRCLE;
+            toolStripLabel1.Text = "Circle Mode";
         }
 
         private void Handler_ToolStripLabel4Click(object sender, EventArgs e)
         {
+            _drawMode = DrawMode.CURVED_LINE;
+            toolStripLabel1.Text = "Curved_Line Mode";
+        }
 
+        private void toolStripLabel5_Click(object sender, EventArgs e)
+        {
+            var colorDialog = new ColorDialog();
+
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                pen.Color = colorDialog.Color;
+            }
+        }
+
+        private void Handler_Form5MouseDown(object sender, MouseEventArgs e)
+        {
+            startP = new Point(e.X, e.Y);
+            previousP = startP;
+            currentP = startP;
+        }
+
+        private void Handler_Form5MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left)
+            {
+                return;
+            }
+
+            previousP = currentP;
+            currentP = new Point(e.X, e.Y);
+
+            switch (_drawMode)
+            {
+                case DrawMode.LINE:
+                    _g.DrawLine(eraser, startP, previousP);
+                    _g.DrawLine(pen, startP, currentP);
+                    break;
+
+                case DrawMode.RECTANGLE:
+                    _g.DrawRectangle(eraser, new Rectangle(startP, new Size(previousP.X - startP.X, previousP.Y - startP.Y)));
+                    _g.DrawRectangle(pen, new Rectangle(startP, new Size(currentP.X - startP.X, currentP.Y - startP.Y)));
+                    break;
+
+                case DrawMode.CIRCLE:
+                    _g.DrawEllipse(eraser, new Rectangle(startP, new Size(previousP.X - startP.X, previousP.Y - startP.Y)));
+                    _g.DrawEllipse(pen, new Rectangle(startP, new Size(currentP.X - startP.X, currentP.Y - startP.Y)));
+                    break;
+
+                case DrawMode.CURVED_LINE:
+                    _g.DrawLine(pen, previousP, currentP);
+                    break;
+            }
+        }
+
+        private void Handler_Form5MouseUp(object sender, MouseEventArgs e)
+        {
+            endP = new Point(e.X, e.Y);
+
+            switch (_drawMode)
+            {
+                case DrawMode.LINE:
+                    _g.DrawLine(pen, startP, endP);
+                    break;
+
+                case DrawMode.RECTANGLE:
+                    _g.DrawRectangle(pen, new Rectangle(startP, new Size(endP.X - startP.X, endP.Y - startP.Y)));
+                    break;
+
+                case DrawMode.CIRCLE:
+                    _g.DrawEllipse(pen, new Rectangle(startP, new Size(endP.X - startP.X, endP.X - startP.Y)));
+                    break;
+
+                case DrawMode.CURVED_LINE:
+                    break;
+                default:
+                    break;
+            }
         }
 
         //private void Handler_form5Resize(object sender, EventArgs e)
