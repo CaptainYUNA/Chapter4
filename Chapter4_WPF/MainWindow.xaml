@@ -42,8 +42,8 @@
                     <RowDefinition Height="190"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button Name="green" Background="Green" Margin="40" Click="Handler_GreenClick"/>
-                <Button Name="red" Background="red" Margin="40" Grid.Column="1" Click="Handler_RedClick"/>
+                <Button Name="greenButton" Background="Green" Margin="40" Click="Handler_GreenClick"/>
+                <Button Name="redButton" Background="red" Margin="40" Grid.Column="1" Click="Handler_RedClick"/>
                 <TextBox Text="Start Blinking" Grid.Row="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
                 <TextBox Text="Stop Blinking" Grid.Row="1" Grid.Column="2" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             </Grid>

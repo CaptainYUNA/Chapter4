@@ -33,15 +33,15 @@ namespace Chapter4_WPF
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (red.Background == Brushes.Red)
+            if (redButton.Background == Brushes.Red)
             {
-                red.ClearValue(BackgroundProperty);
-                green.Background = Brushes.Green;
+                redButton.ClearValue(BackgroundProperty);
+                greenButton.Background = Brushes.Green;
             }
             else
             {
-                green.ClearValue(BackgroundProperty);
-                red.Background = Brushes.Red;
+                greenButton.ClearValue(BackgroundProperty);
+                redButton.Background = Brushes.Red;
             }
         }
 
@@ -73,6 +73,10 @@ namespace Chapter4_WPF
         private void Handler_RedClick(object sender, RoutedEventArgs e)
         {
             timer.Stop();
+
+            //멈췄을 때 원래 색상이 아닌 경우가 있어서 강제로 지정
+            redButton.Background = Brushes.Red;
+            greenButton.Background = Brushes.Green;
         }
     }
 }

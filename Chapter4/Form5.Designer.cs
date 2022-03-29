@@ -51,6 +51,8 @@
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.currentModeLabel = new System.Windows.Forms.ToolStripLabel();
             this.chpater152.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myPlayer)).BeginInit();
             this.chpater153.SuspendLayout();
@@ -167,6 +169,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.currentModeLabel,
+            this.toolStripSeparator5,
             this.toolStripLabel1,
             this.toolStripSeparator1,
             this.toolStripLabel2,
@@ -237,6 +241,16 @@
             this.toolStripLabel5.Text = "색깔";
             this.toolStripLabel5.Click += new System.EventHandler(this.toolStripLabel5_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // currentModeLabel
+            // 
+            this.currentModeLabel.Name = "currentModeLabel";
+            this.currentModeLabel.Size = new System.Drawing.Size(0, 22);
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -289,5 +303,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
+        private System.Windows.Forms.ToolStripLabel currentModeLabel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     }
 }

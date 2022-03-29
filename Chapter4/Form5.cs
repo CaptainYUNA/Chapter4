@@ -40,7 +40,7 @@ namespace Chapter4
             t.Start();
 
             _g = CreateGraphics();
-            toolStripLabel1.Text = "Line Mode";
+            currentModeLabel.Text = "None";
             BackColor = Color.White;
             eraser = new Pen(BackColor, 2);
         }
@@ -122,25 +122,25 @@ namespace Chapter4
         private void Handler_ToolStripLabel1Click(object sender, EventArgs e)
         {
             _drawMode = DrawMode.LINE;
-            toolStripLabel1.Text = "Line Mode";
+            currentModeLabel.Text = "Line Mode";
         }
 
         private void Handler_ToolStripLabel2Click(object sender, EventArgs e)
         {
             _drawMode = DrawMode.RECTANGLE;
-            toolStripLabel1.Text = "Rectangle Mode";
+            currentModeLabel.Text = "Rectangle Mode";
         }
 
         private void Handler_ToolStripLabel3Click(object sender, EventArgs e)
         {
             _drawMode = DrawMode.CIRCLE;
-            toolStripLabel1.Text = "Circle Mode";
+            currentModeLabel.Text = "Circle Mode";
         }
 
         private void Handler_ToolStripLabel4Click(object sender, EventArgs e)
         {
             _drawMode = DrawMode.CURVED_LINE;
-            toolStripLabel1.Text = "Curved_Line Mode";
+            currentModeLabel.Text = "Curved_Line Mode";
         }
 
         private void toolStripLabel5_Click(object sender, EventArgs e)
@@ -208,21 +208,15 @@ namespace Chapter4
                     break;
 
                 case DrawMode.CIRCLE:
-                    _g.DrawEllipse(pen, new Rectangle(startP, new Size(endP.X - startP.X, endP.X - startP.Y)));
+                    _g.DrawEllipse(pen, new Rectangle(startP, new Size(endP.X - startP.X, endP.Y - startP.Y)));
                     break;
 
                 case DrawMode.CURVED_LINE:
                     break;
+
                 default:
                     break;
             }
         }
-
-        //private void Handler_form5Resize(object sender, EventArgs e)
-        //{
-        //    selectFileButton.Location = new Point(
-        //        ClientSize.Width - selectFileButton.Size.Width - 5, 
-        //        ClientSize.Height - selectFileButton.Size.Height - 5);
-        //}
     }
 }
